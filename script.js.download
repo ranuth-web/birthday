@@ -1,0 +1,42 @@
+// Confetti generator
+for (let i = 0; i < 100; i++) {
+  let confetti = document.createElement('div');
+  confetti.classList.add('confetti');
+  confetti.style.left = Math.random() * 100 + 'vw';
+  confetti.style.backgroundColor = ['#ff69b4', '#ffd700', '#fff', '#ffb6c1'][Math.floor(Math.random() * 4)];
+  confetti.style.animationDuration = (3 + Math.random() * 3) + 's';
+  confetti.style.width = confetti.style.height = (5 + Math.random() * 5) + 'px';
+  confetti.style.animationDelay = Math.random() * 5 + 's';
+  document.body.appendChild(confetti);
+}
+
+// Typewriter for title
+const text = "Happy Birthday My Love 💖";
+const textElem = document.getElementById('birthdayText');
+let index = 0;
+
+function typeWriter() {
+  if (index < text.length) {
+    textElem.textContent += text.charAt(index);
+    index++;
+    setTimeout(typeWriter, 150);
+  } else {
+    textElem.style.animation = "fadeIn 2s forwards";
+    showWish();
+  }
+}
+
+// 🌸 New heartfelt birthday wish
+const wish = `happy birthday princess — the beautiful girl, the sweet girl, the loving girl, the smart girl, the independent girl, the sunflower girl, the genuinely kind-hearted girl. 💖
+
+thank you for holding on, thank you for growing up so strong. i don't have much to say, i just want you to be yourself, love yourself, and spend each moment with sincerity. wherever you are, stay kind, humble, and happy.
+
+please never be afraid to step forward and keep going through each day. there will be many people who love, care for, and support you. so keep being that cheerful and positive girl. you’ve done your best — you nailed it through today and every day. congratulations! all prayers and hopes are blessed with you. 🎂💞`;
+
+function showWish() {
+  const wishElem = document.getElementById('wishText');
+  wishElem.textContent = wish;
+  wishElem.style.animation = "fadeIn 2s forwards";
+}
+
+setTimeout(typeWriter, 1000);
